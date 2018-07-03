@@ -1,0 +1,118 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{fancyheadings}
+\usepackage{grffile}
+\usepackage[round]{natbib}
+\usepackage{subcaption}
+
+\usepackage{siunitx}
+\sisetup{input-symbols=(), group-digits  = false}
+ 
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{rotating}
+%\usepackage{harvard}
+%\usepackage{aer}
+%\usepackage{aertt}
+\usepackage{verbatim}
+\usepackage{array}
+\usepackage{multirow}
+
+\setlength{\voffset}{-0.25in}
+\setlength{\topmargin}{0pt}
+\setlength{\hoffset}{0pt}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{.4in}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparpush}{0pt}
+\setlength{\footskip}{.1in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9.25in}
+\setlength{\parskip}{0pc}
+
+\renewcommand{\baselinestretch}{1.6}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\prbf}[1]{\textbf{#1}}
+\newcommand{\prit}[1]{\textit{#1}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bdm}{\begin{displaymath}}
+\newcommand{\edm}{\end{displaymath}}
+\newcommand{\script}[1]{\begin{cal}#1\end{cal}}
+%\newcommand{\citee}[1]{\citename{#1} (\citeyear{#1})}
+\newcommand{\citee}[1]{\citet{#1}}
+%\newcommand{\citee}[1]{\citeauthor{#1} (\citeyear{#1})}
+\newcommand{\h}[1]{\hat{#1}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\normal}{\mathcal{N}}
+\newcommand{\app}
+{
+\appendix
+}
+
+%\newcommand{\appsection}[1]
+%{
+%\let\oldthesection\thesection
+%\renewcommand{\thesection}{Appendix \oldthesection}
+%\section{#1}\let\thesection\oldthesection
+%\renewcommand{\theequation}{\thesection\arabic{equation}}
+%\setcounter{equation}{0}
+%}
+
+\newcommand{\appsection}[1]
+{
+\section{#1}
+\renewcommand{\theequation}{\thesection\arabic{equation}}
+\setcounter{equation}{0}
+}
+
+
+%\pagestyle{empty}
+\pagestyle{fancyplain}
+\lhead{}
+\chead{Macroeconomic Consequences of Uncertain Fiscal Targets}
+\rhead{\thepage}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{singlespace}
+\title{Macroeconomic Consequences of Uncertain Fiscal Targets}
+\date{\today}
+\author{
+James Murray\footnote{\textit{Mailing address}: 1725 State St., La Crosse, WI  54601. \textit{Phone}: (608)406-4068.\newline  \textit{E-mail}: jmurray@uwlax.edu.}\\Department of Economics\\University of Wisconsin - La Crosse
+}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\abstract{There is significant uncertainty to long-run targets for fiscal variables when, on occasion, elected officials make substantial semi-permanent changes to laws that affect tax rates, transfer programs, and expenditure programs.  Policy changes like this may lead to substantial differences for the long-run paths for fiscal variables.  I present a model for such fiscal policy behavior using empirically motivated fiscal behavior ``rules,'' each similar to a Taylor rule, but which are subject to Markov regime switching in the long-run targets for the fiscal variables.  Economic agents are not endowed with knowledge on the coefficients in the fiscal rules, the long-run outcomes under each regime, nor do they know with certainty which regime fiscal policy operates under in any given period or what are the parameter values for the regime switching process.  They update their expectations for these aspects of fiscal policy behavior using backward-looking least-squares learning.  I embed these processes for fiscal behavior and expectations formation into an otherwise standard linearized New Keynesian model.  I estimate the model for the U.S. economy and examine the consequences of fiscal uncertainty on the impact fiscal and structural shocks have on macroeconomic outcomes.}\\
+
+\noindent \textit{Keywords}: Fiscal policy, uncertainty, learning, regime switching. \\
+\noindent \textit{JEL classification}: E32, E62.
+\end{singlespace}
+\end{titlepage}
+
+\newpage
+
+\section{Model}
+Government spending and net transfers behavior evolve according to the following equations,
+\beq g_t = \rho_{g} g_{t-1} + (1 - \rho_{g}) \left[ \bar{g}(s_t) + \gamma_g (b_{t-1} - \bar{b}(s_t)) \right] \eeq 
+
+
+\end{document}

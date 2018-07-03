@@ -1,0 +1,285 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{calc}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{fancyheadings}
+\usepackage{grffile}
+\usepackage[round]{natbib}
+\usepackage{subcaption}
+\usepackage{amssymb}
+
+\usepackage{siunitx}
+\sisetup{input-symbols=(), group-digits  = false}
+ 
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{rotating}
+%\usepackage{harvard}
+%\usepackage{aer}
+%\usepackage{aertt}
+\usepackage{verbatim}
+\usepackage{array}
+\usepackage{multirow}
+
+\setlength{\voffset}{-0.25in}
+\setlength{\topmargin}{0pt}
+\setlength{\hoffset}{0pt}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{.4in}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparpush}{0pt}
+\setlength{\footskip}{.1in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{9.25in}
+\setlength{\parskip}{0pc}
+
+\renewcommand{\baselinestretch}{1.1}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\prbf}[1]{\textbf{#1}}
+\newcommand{\prit}[1]{\textit{#1}}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bdm}{\begin{displaymath}}
+\newcommand{\edm}{\end{displaymath}}
+\newcommand{\script}[1]{\begin{cal}#1\end{cal}}
+%\newcommand{\citee}[1]{\citename{#1} (\citeyear{#1})}
+\newcommand{\citee}[1]{\citet{#1}}
+%\newcommand{\citee}[1]{\citeauthor{#1} (\citeyear{#1})}
+\newcommand{\h}[1]{\hat{#1}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\normal}{\mathcal{N}}
+\newcommand{\eqref}[1]{(\ref{#1})}
+\newcommand{\app}
+{
+\appendix
+}
+
+\newcommand{\La}{\mathcal{L}}
+
+%\newcommand{\appsection}[1]
+%{
+%\let\oldthesection\thesection
+%\renewcommand{\thesection}{Appendix \oldthesection}
+%\section{#1}\let\thesection\oldthesection
+%\renewcommand{\theequation}{\thesection\arabic{equation}}
+%\setcounter{equation}{0}
+%}
+
+\newcommand{\appsection}[1]
+{
+\section{#1}
+\renewcommand{\theequation}{\thesection\arabic{equation}}
+\setcounter{equation}{0}
+}
+
+
+%\pagestyle{empty}
+\pagestyle{fancyplain}
+\lhead{}
+\chead{Workhorse New Keynesian Model}
+\rhead{\thepage}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+\begin{document}
+
+\title{Workhorse New Keynesian Model}
+\author{}\date{}
+
+\maketitle
+\thispagestyle{empty}
+\section{Producers}
+\subsection{Final Goods Producing Firms}
+A single final good, $Y_t$, is produced with a continuum of intermediate goods, $Y_t(i)$, according to the following CES production function,
+\beq \label{eq:finalprod} Y_t = \left[ \int_0^1 Y_t(i)^{\frac{\theta_t-1}{\theta_t}} di \right]^{\frac{\theta_t}{\theta_t-1}} \eeq
+where $\theta_t$ is a time-varying elasticity of subsitution between intermediate goods.  Intermediate goods firms have monopolistically competitive market power, so as $\theta_t \rightarrow \infty$, intermediate goods approach perfect substitutes, and market power diminishes.  Time-varying fluctuations in $\theta_t$ cause fluctuations in the degree of market power, and therefore fluctuations in the degree of the markup of the price of intermediate goods over marginal cost, and therefore fluctuations in cost for final goods producing firms.
+
+Final goods producing firms choose demand for $Y_t(i)$ to maximize profits,
+\beq \max_{Y_t(i)} P_t \left[ \int_0^1 Y_t(i)^{\frac{\theta_t-1}{\theta_t}} di \right]^{\frac{\theta_t}{\theta_t-1}} - \int_0^1 P_t(i) Y_t(i) di, \eeq
+where $P_t$ is the price of the final good and $P_t(i)$ is the price of intermediate good $i$.  The first order condition leads to the following demand for intermediate goods:
+\beq \label{eq:intdem} Y_t(i) = \left[\frac{P_t(i)}{P_t}\right]^{-\theta_t} Y_t. \eeq
+Substituting (\ref{eq:intdem}) into (\ref{eq:finalprod}) leads to the following expression for the aggregate price level:
+\beq \label{eq:aggprice} P_t = \left[ \int_0^1 P_t(i)^{1-\theta_t} di \right]^{\frac{1}{1-\theta_t}} \eeq
+
+\subsection{Intermediate Goods Producing Firms}
+Each intermediate goods firm, $i$, produces a quantity of output, $Y_t(i)$, with capital and labor according to the following production function:
+\beq \label{eq:intprod} Y_t(i) = z_t K_t^s(i)^{\alpha}\left[\gamma^t L_t(i) \right]^{1-\alpha} - \gamma^t \Phi \eeq
+where,
+\bi
+\item $z_t$ is a common total productivity shock,
+\item $K_t^s(i)$ are capital services used by firm $i$ (capital stock may exceed capital services with partial capital utilization),
+\item $L_t(i)$ is labor hired by firm $i$ from a homogenous aggregate labor input,
+\item $\gamma$ is a labor-augmenting deterministic gross growth rate, and
+\item $\Phi$ is a fixed cost.
+\ei
+
+Given a level of output, $Y_t(i)$, and the production function in (\ref{eq:intprod}), firms choose capital services and labor demand to minimize total cost,
+\beq \label{eq:intcost} \min_{L_t(i), K_t^s(i)} W_t L_t(i) + R_t^k K_t^s(i), \eeq
+where $W_t$ is the nominal wage paid to the aggregate labor input and $R_t^k$ is the capital rental rate.  Let $X_t(i)$ denote the nominal marginal cost for firm $i$, and therefore be the Lagrangian multiplier on the production function (\ref{eq:intprod}).  The first order conditions are given by,
+\beq \label{eq:focL} W_t = (1-\alpha) \gamma^{t(1-\alpha)} X_t(i) z_t K_t^s(i)^{\alpha} L_t(i)^{-\alpha} \eeq
+\beq \label{eq:focK} R_t^k = \alpha \gamma^{t(1-\alpha)} X_t(i) z_t K_t^s(i)^{\alpha-1} L_t(i)^{1-\alpha} \eeq
+ Solving each of these for the marginal cost, $X_t(i)$, and setting these equal to each other yields the following relationship for the capital to labor ratio:
+\beq \label{eq:KL} \frac{K_t^s(i)}{L_t(i)} = \left( \frac{\alpha}{1-\alpha} \right) \frac{W_t}{R_t^k} \eeq
+Since the right-side of the equation does not include any firm-$i$-specific variables, the capital to labor ratio of all intermediate goods producing firms will be identical.  Substituting (\ref{eq:KL}) into either of the first order conditions above, (\ref{eq:focL}) or (\ref{eq:focK}), leads to the following expression for marginal cost, which also turns out to be identical for all intermediate goods producing firms:
+\beq \label{eq:mc} X_t(i) = X_t = \alpha^{-\alpha} (1-\alpha)^{-(1-\alpha)} \gamma^{-t(1-\alpha)} z_t^{-1} W_t ^{1-\alpha} {R_t^k}^{\alpha} \eeq
+
+Let $\chi_{t} \equiv {X_t}/{P_t}$ denote real marginal cost, $w_t \equiv {W_t}/({P_t \gamma^t})$ denote detrended real wage, and $r_t^k = {R_t^k}/{P_t}$ denote the real capital rental rate.  It can be shown from equation \label{eq:mc} that real marginal cost is given by,
+\beq \label{eq:realmc} \chi_t = \alpha^{-\alpha} (1-\alpha)^{-(1-\alpha)} z_t^{-1} w_t^{1-\alpha} {r_t^k}^{\alpha}. \eeq
+Equation (\ref{eq:realmc}) expresses real marginal cost completely in terms of real, stationary variables, and so can be log-linearized along the deterministic balanced growth path.  Let $\hat{q}$ denote the percentage deviation of any stationary variable $q$ from its steady state.  The log-linear real marginal cost is given by,
+\beq \label{eq:lnrealmc} \hat{\chi}_t = (1-\alpha) \hat{w}_t + \alpha \hat{r}_t^k - \hat{z}_t \eeq
+
+
+\subsection{Calvo Pricing Fairy}
+Intermediate goods producing firms enjoy market power in a monopolistically competitive environment, but they are subject to a pricing friction.  In any period, firms face a random probability, $(1-\xi_p) \in (0,1)$, of being able to reoptimize their price.  If the firm is not able to re-optimize, it may update the price of its good by the gross rate, $\pi_{t-1}^{\iota_p} {\pi^*}^{1-\iota_p}$, where $\pi_{t-1} = P_{t-1} / P_{t-2}$ is the past gross inflation rate, $\pi^*$ is the steady state gross inflation rate, and $\iota_p \in [0,1)$ is the degree of indexation to past inflation.
+
+For a firm that re-optimizes its price today, let its optimal choice be $\tilde{P}_t(i)$.  With probability $\xi_p^s$ the firm will not be reoptimizing its price again for $s$ periods into the future.  If such is the case, the firm's price in period $t+s$ (for $s>1$) is given by,
+\beq P_{t+s}(i) = \tilde{P}_t(i) \prod_{l=1}^s (\pi_{t+l-1}^{\iota_p} {\pi^*}^{1-\iota_p}) \eeq
+Let $\Delta_{t,s} = \prod_{l=1}^s (\pi_{t+l-1}^{\iota_p} {\pi^*}^{1-\iota_p})$ so that $P_{t+s}(i) = \tilde{P}_t(i) \Delta_{t,s}$.  Firms that are able to reoptimize their price choose $\tilde{P}_t(i)$ to maximize the present discounted utility value of real profits that will be earned until the firm is able to re-optimize their price again:
+\beq \label{eq:intprofit} \max_{\tilde{P}_t(i)} E_t \sum_{s=0}^{\infty} \xi_p^s \beta^s \Lambda_{t+s} \left[ \tilde{P}_t(i) \Delta_{t,s} - X_{t+s} \right] \left[ \frac{ \tilde{P}_t(i) \Delta_{t,s} }{P_{t+s}} \right]^{-\theta_{t+s}} \frac{Y_{t+s}}{P_{t+s}}, \eeq
+where $\beta$ is a discount factor and $\Lambda_{t+s}$ is the utility value of one unit of real income.  The first order condition is given by,
+\beq \label{eq:pifoc} \begin{array}{ll} 
+E_t \ds \sum_{s=0}^\infty \xi_p^s \beta^s (1-\theta_{t+s}) \tilde{P}_t(i)^{-\theta_{t+s}}  \Lambda_{t+s} \Delta_{t,s}^{1-\theta_{t+s}} P_{t+s}^{\theta_{t+s}-1} Y_{t+s}  & + \\ [1.5pc]
+E_t \ds \sum_{s=0}^\infty \xi_p^s \beta^s \theta_{t+s} \tilde{P}_t(i)^{-\theta_{t+s}-1}  \Lambda_{t+s} X_{t+s}  \Delta_{t,s}^{-\theta_{t+s}} P_{t+s}^{\theta_{t+s}-1} Y_{t+s} & = 0 
+\end{array}\eeq
+
+Because $\tilde{P}_t(i)$ is an implicit function of only non-firm-specific variables in equation (\ref{eq:pifoc}), all firms choose an identical price $\tilde{P}_t(i) = \tilde{P}_t$.  Let $y_t \equiv {Y_t}/{\gamma^t}$ denote detrended output, $\lambda_t \equiv \Lambda_t \gamma^{\sigma_c t}$ denote detrended utility value of income, $\tilde{p}_t = {\tilde{P}_t}/{P_t}$ denote relative (detrended) optimal choice for price, and $\Pi_{t,s} \equiv {P_{t+s}}/{P_t}$ be the relative price index for the price in period $t+s$ with base period $t$.  Considering these new terms, multiplying both sides of equation (\ref{eq:pifoc}) by $P_t (\sigma_c-1)t$, and re-arranging yields,
+\beq \label{eq:pifoc-det} \begin{array}{l} \ds E_t \sum_{s=0}^{\infty} \xi_p^s \beta^s \gamma^{(1-\sigma_c)s}(\theta_{t+s}-1) \tilde{p}_t^{-\theta_{t+s}} \lambda_{t+s} \Delta_{t,s}^{1-\theta_{t+s}} \Pi_{t,s}^{\theta_{t+s}-1} y_{t+s} \\ [1.5pc]
+= \ds E_t \sum_{s=0}^{\infty} \xi_p^s \beta^s \gamma^{(1-\sigma_c)s} \theta_{t+s} \tilde{p}_t^{-\theta_{t+s}-1} \lambda_{t+s} \chi_{t+s} \Delta_{t,s}^{-\theta_{t+s}} \Pi_{t,s}^{\theta_{t+s}} y_{t+s}  \end{array} \eeq
+
+We will next turn to log-linearizing equation (\ref{eq:pifoc-det}) around its deterministic steady state.  Evaluating the equation at steady state values reveals that steady state real marginal cost is given by,
+\beq \label{eq:ssmc} \chi^* = \frac{\theta-1}{\theta}, \eeq
+where $\theta$ is the exogenously given steady state value of $\theta_t$.  The steady state gross rate of inflation is exogenous and denoted by $\pi^*$, and the steady state values for both $\Pi_{t,s}$ and $\Delta_{t,s}$ are then equal to ${\pi^*}^s$.  The steady state value for the relative optimal optimal price $\tilde{p}_t$ is equal to 1.0.  Steady state levels for $\lambda_t$ and $y_t$ cancel out at log-linearization.  Log-linearizing equation (\ref{eq:pifoc-det}) yields,
+\beq \label{eq:poptln} \hat{\tilde{p}}_t = (1-\xi_p \gamma^{1-\sigma_c}\beta) E_t \sum_{s=0}^{\infty} \xi_p^s \beta^s \gamma^{(1-\sigma_c)s} \left[ \hat{\Pi}_{t,s} - \hat{\Delta}_{t,s} + \hat{\chi}_{t+s} - \frac{1}{\theta(\theta-1)} \hat{\theta}_{t+s} \right] \eeq
+
+
+A fraction $(1-\xi_p)$ firms re-optimize their prices and each has an identical price, $\tilde{P}_t$.  The remaining fraction $\xi_p$ firms do not re-optimize and instead scale the previous period's price according to an indexation rule based on past and steady state inflation.  The average price level of these firms is given by, $P_{t-1} \pi_{t-1}^{\iota_p} {\pi^*}^{1-\iota_p}$.  The aggregate price index in equation (\ref{eq:aggprice}) can be expressed with the following relationship,
+
+\beq \label{eq:psum} P_t^{1-\theta_t} = (1-\xi_p) \tilde{P}_t^{1-\theta_t} + (1-\xi_p) P_{t-1}^{1-\theta_t} \pi_{t-1}^{\iota_p(1-\theta_t)} {\pi^*}^{(1-\iota_p)(1-\theta_t)} \eeq
+
+To express prices and inflation in terms of stationary variables, define $\tilde{p}_t \equiv \frac{\tilde{P}_t}{P_t}$ as the relative price chosen by firms re-optimizing as a ratio of the average price prevailing at time $t$.  Diving both sides of equation (\ref{eq:psum}) by $P_t^{1-\theta_t}$ leads to the expression,
+\beq 1 = (1-\xi_p) \tilde{p}_t^{1-\theta_t} + \xi_p \pi_t^{\theta_t-1} \pi_{t-1}^{\iota_p(1-\theta_t)} {\pi^*}^{(1-\iota_p)(1-\theta_t)} \eeq
+Let $\hat{\pi}_t \equiv \pi_t - \pi^*$ denote the deviation of inflation from its steady state value.  Linearizing equation (\ref{eq:psum}) leads to the following expression for the relative optimal price:
+\beq \label{eq:lnp} \hat{\tilde{p}}_t = \frac{\xi_p}{1-\xi_p} \left(\hat{\pi}_t - \iota_p \hat{\pi}_{t-1}\right) \eeq
+Combining equations \eqref{eq:lnp} and \eqref{eq:poptln} leads to the following forward looking Phillips curve with persistence:
+\beq \label{eq:phillip} \hat{\pi}_t = \frac{\beta \gamma^{1-\sigma_c}}{1+\beta \gamma^{1-\sigma_c} \iota_p} E_t \hat{\pi}_{t+1} + \frac{\iota_p}{1+\beta \gamma^{1-\sigma_c} \iota_p} \hat{\pi}_{t-1} + \frac{(1-\xi_p)(1-\beta \gamma^{1-\sigma_c} \xi_p)}{\xi_p(1+\beta \gamma^{1-\sigma_c} \iota_p)} \left[\hat{\chi}_t - \frac{1}{\theta(\theta-1)}\hat{\theta}_t \right] \eeq
+
+\section{Households}
+\subsection{Framework}
+There are a continuum of identical households on the unit interval.  Each  household, $j\in(0,1)$ consumes a common final good, $C_t(j)$; supplies labor, $L_t(j)$; purchases nominal government bonds, $B_t(j)$; invests, $I_t(j)$, in capital stock, $K_t(j)$; and rents capital services, $K_t^s(j)$, to intermediate goods firms in a competitive market.  The lifetime utility for consumer $j$ is given by,
+\beq \label{eq:util} E_0 \sum_{t=0}^{\infty} \left[ \frac{1}{1-\sigma_c} a_t \left(C_t(j) - \lambda C_{t-1} \right)^{1-\sigma_c} \right] \exp{\left[\frac{\sigma_c-1}{1+\sigma_l} L_t(j)^{1+\sigma_l}\right]}, \eeq
+where $\sigma_c$ is the inverse intertemporal elasticity of substitution (given labor is constant), $\sigma_l$ is the inverse of the Frisch elasticity of labor supply (given constant consumption), and $a_t$ is a demand shock that increasing utility derived from consumption and leisure, where a temporary positive shock leads to an increase in demand for consumption, a decrease in the desire to save, and a decrease in labor supply.
+
+The consumer budget constraint is given by,
+\beq \label{eq:budget} P_t C_t(j) + P_t I_t(j) + B_t(j) = (1-\tau_{t}^L)W_t^h L_t(j) + R_{t-1} B_{t-1} + R_t^k u_t(j) K_t(j) - P_t a\left[u_t(j)\right]K_t(j) + D_t, \eeq
+where $\tau_t^L \in (0,1)$ is the possibly time-varying tax rate on labor income and $R_t$ is the gross nominal interest rate on government bonds.  The wage households receive for their labor services is given by $W_t^h$, which is possibly different than the wage paid by firms, given by $W_t$ in the previous section, in the event there is market power in the labor services sector and a third party extracts the rents.  Details on this are discussed in the next section.   Capital services is related to capital stock according to,
+\beq K_t^s(j) = u_t(j) K_t(j), \eeq
+where $u_t(j) \in (0,1)$ is the capital utilization rate.  The steady state value is equal to 1.0, but in any given period, consumers may choose to rent less than 100\% of their capital stock to reduce maintenance costs.  The function $a(\cdot)$ in the budget constraint above reflects these maintenance costs.  The function is increasing ($a'(\cdot)>0$), convex ($a''(\cdot)>0$), and has the property that maintenance costs are equal to zero at the steady state ($a(1)=0$).  Only the following curvature parameter for the function is needed at log-linearization, which is assumed constant,
+\beq \sigma_a = \frac{a''(1)}{a'(1)} > 0. \eeq
+
+Capital stock evolves according to,
+\beq \label{eq:capital} K_t(j) = (1-\delta) K_{t-1}(j) + z_t^I\left\{1 - S\left[\frac{I_t(j)}{I_{t-1}(j)}\right]\right\}I_t(j), \eeq
+where $z_t^I$ is an investment technology shock and $S(\cdot)$ is a convex function for capital adjustment costs.  Let $S(\gamma)=0$, $S'(\gamma)=0$, and $S''(\cdot)>0$ so that capital adjustment costs are its minimum and equal to zero when the gross growth rate of investment ($I_t(j)/I_{t-1}(j)$) is at its steady state, $\gamma$.  When the growth rate of investment moves away from its steady state in either direction, capital adjustment costs increase at an increasing rate.
+
+The consumer chooses consumption, $C_t(j)$; labor supply, $L_t(j)$; investment, $I_t(j)$; capital utilization, $u_t(j)$; and bond purchases, $B_t(j)$; to maximize utility \eqref{eq:util}, subject to the budget constraint \eqref{eq:budget} and the evolution of capital \eqref{eq:capital}.  Let $\Lambda_t(j)$ and $\Psi_t(j)$ denote the respective Lagrange multipliers for these contraints.   The first order conditions are the following:
+\begin{eqnarray} 
+\label{eq:focc} \ds \frac{\partial \La}{\partial C_t(j)}:~~ &  a_t \left[C_t(j) - \lambda C_{t-1}\right]^{-\sigma_c} \exp{\left(\frac{\ds \sigma_c-1}{\ds 1+\sigma_l}\right) L_t(j)^{1+\sigma_l}} = \Lambda_t(j) \\ [1.5pc]
+\label{eq:focl} \ds \frac{\partial \La}{\partial L_t(j)}:~~ &  a_t \left[C_t(j) - \lambda C_{t-1}\right]^{1-\sigma_c} \exp{\left[\left(\frac{\ds \sigma_c-1}{\ds 1+\sigma_l}\right) L_t(j)^{1+\sigma_l}\right] } L_t(j)^{\sigma_l} = (1-\tau_t^l) \frac{\ds W_t^h}{\ds P_t} \Lambda_t(j) \\ [1.5pc]
+\label{eq:foci} \ds \frac{\partial \La}{\partial I_t(j)}:~~ & \begin{array}{r} \Gamma_t(j) z_t^I \left[ \left\{ 1 - S\left[\frac{\ds I_t(j)}{\ds I_{t-1}(j)}\right]\right\} - S'\left[\frac{\ds I_t(j)}{\ds I_{t-1}(j)}\right] \frac{\ds I_t(j)}{\ds I_{t-1}(j)} \right] \\ [1.5pc] 
++ \beta E_t \Gamma_{t+1} (j)S'\left[\frac{\ds I_{t+1}(j)}{\ds I_{t}(j)}\right] \left( \frac{\ds I_{t+1}(j)}{\ds I_{t}(j)} \right)^2 = \Lambda_t(j) \end{array} \\ [1.5pc]
+\label{eq:focu} \ds \frac{\partial \La}{\partial u_{t}(j)}:~~ & \Lambda_t(j) \left[ \frac{\ds R_t^k}{\ds P_t} K_t(j) - a'[u_t(j)]K_t(j)\right] = 0 \\ [1.5pc]
+\label{eq:fock} \ds \frac{\partial \La}{\partial K_{t+1}(j)}:~~ & \beta E_t \Lambda_{t+1}(j) \left[\frac{\ds R_{t+1}^k}{\ds P_{t+1}} u_{t+1}(j) - a\left[u_{t+1}(j)\right] \right] + \beta (1-\delta) E_t \Lambda_{t+1}(j) = \Lambda_t(j) \\ [1.5pc]
+\label{eq:focb} \ds \frac{\partial \La}{\partial B_t(j)}:~~ & \Lambda_t = \beta E_t \left(\frac{\ds R_t}{\ds \Pi_{t+1}}\right) \Lambda_{t+1} 
+\end{eqnarray}
+
+As all consumers are identical, in what follows I drop the notation denoting the $j$th consumer. 
+
+\subsection{Log Linearization}
+We next log-linearize the consumers' first order conditions, the capital stock evolution, and the aggregate resource constraint around the balanced growth path.  This involves re-expressing these equations in stationary terms, and log-linearizing around the deterministic balanced growth path.  
+
+\ \\
+\textbf{Consumption decision FOC:} Let $c_t \equiv C_t / \gamma^t$ denote detrended consumption and $\lambda_t \equiv \Lambda_t \gamma^{\sigma_c t}$ denote detrended marginal utility of income.  Multiplying the first order condition for consumption, equation \eqref{eq:focc}, by $\gamma^{\sigma_c t}$ leads to the following equation is stationary terms:
+\beq \label{eq:sfocc} a_t (c_t - \frac{\lambda}{\gamma} c_{t-1})^{-\sigma_c} \exp{\left(\frac{\ds \sigma_c-1}{\ds 1+\sigma_l}\right) L_t(j)^{1+\sigma_l}} = \lambda_t \eeq
+I normalize the steady state value for the preference shock ($a_t$) and quantity of labor ($L_t$) each equal to one and log-linearize equation \eqref{eq:sfocc} around the steady state, which yields,
+\beq \label{eq:lnfocc} \hat{a}_t - \sigma_c(1-\frac{\lambda}{\gamma})^{-1} (\hat{c}_t - \frac{\lambda}{\gamma} \hat{c}_{t-1}) + (\sigma_c-1) \hat{L}_t \eeq
+
+\ \\
+\textbf{Labor supply decision FOC:} Let $w_t^h \equiv {W_t^h}/({P_t \gamma^t})$ denote the detrended real wage received by household.  Multiplying the first order condition for labor also by $\gamma^{\sigma_c t}$ yields the following form of the equation in stationary terms,
+\beq \label{eq:sfocl} a_t (c_t - \frac{\lambda}{\gamma} c_{t-1})^{1-\sigma_c} \exp{\left[ \left(\frac{\ds \sigma_c-1}{\ds 1+\sigma_l}\right) L_t^{1+\sigma_l} \right]} L_t^{\sigma_l} = (1-\tau_t^l) w_t^h \lambda_t \eeq
+Let $\tau^l$ denote the long-run average labor tax rate, or any otherwise convenient value around which to linearize equation \eqref{eq:sfocl}.  The log-linear form of \eqref{eq:sfocl} is given by,
+\beq \label{eq:lnfocl} \hat{a}_t + (1-\sigma_c)(\hat{c}_t - \frac{\lambda}{\gamma}\hat{c}_{t-1}) + (\sigma_c + \sigma_l)\hat{L}_t = \hat{w}_t + \hat{\lambda}_t - \frac{1}{1-\tau^l} \hat{\tau}_t^l \eeq
+
+\ \\
+\textbf{Investment decision FOC:} Let $i_t \equiv I_t / \gamma^t$ denote detrended investment and $\psi_t \equiv \Psi_t \gamma^{\sigma_c t}$ denote detrended marginal utility of capital stock, and recall $\lambda_t \equiv \Lambda_t \gamma^{\sigma_c t}$ is the detrended marginal utility of real income.  Multiplying both sides of equation \eqref{eq:foci} by $\gamma^{\sigma_c t}$ leads to the following expression for first order condition for investment in stationary terms:
+\beq \label{eq:sfoci} \psi_t z_t^I \left\{ \left[1-S\left(\gamma \frac{i_t}{i_{t-1}}\right)\right] - \gamma S'\left(\gamma \frac{i_t}{i_{t-1}}\right) \frac{i_t}{i_{t-1}} \right\} 
++ \beta \gamma^{2-\sigma_c} E_t \psi_{t+1} S'\left(\gamma \frac{i_{t+1}}{i_t}\right)  \left(\frac{i_{t+1}}{i_t}\right)^2 = \lambda_t  \eeq
+Log-linearizing equation \eqref{eq:sfoci} along the balanced growth path where $S(\gamma)=S'(\gamma)=0$ leads to the relatively simple expression,
+\beq \hat{\psi}_t + \hat{z}_t^I = \hat{\lambda}_t. \eeq
+
+\ \\
+\textbf{Capital utilization decision FOC:} The first order condition for capital utilitization, equation \eqref{eq:focu}, reduces to,
+\beq \frac{R_t^k}{P_t} = a'(u_t). \eeq
+Along the balanced growth path with full capital utilization, $r^k = a'(1)$, which says that the real rental rate of capital is equal to the marginal capital maintenance cost.  Log-linearizing leads to the following expression,
+\beq \label{eq:lnfocu} \hat{r}_t^k = \sigma_a \hat{u}_t. \eeq
+
+\ \\
+\textbf{Capital stock decision FOC:} Multiplying equation \eqref{eq:fock} by $\gamma^{\sigma_c t}$ leads to the following expression for the capital stock first order condition in stationary terms,
+\beq \label{eq:sfock} \psi_t = \beta (1-\delta) \gamma^{-\sigma_c} E_t \psi_{t+1} + \beta \gamma^{-\sigma_c} E_t \lambda_{t+1} \left[r_{t+1}^k u_{t+1} - a(u_{t+1})\right] \eeq
+Evaluating this at the balanced growth path reveals the following expression for the steady state value of the real rental rate of capital,
+\beq \label{eq:ssrk} r^k = \beta^{-1} \gamma^{\sigma_c} - (1-\delta) \eeq
+Log-linearizing equation \eqref{eq:sfock} and also noting that $a'(1)=r^k$ leads to the following log-linear first-order condition:
+\beq \label{eq:lnfock} \hat{\psi}_t = \beta (1-\delta) \gamma^{-\sigma_c} E_t \hat{\psi}_{t+1} + \left[1-\beta\gamma^{-\sigma_c}(1-\delta)\right] E_t \hat{\lambda}_{t+1} \eeq
+
+\ \\
+\textbf{Government bonds decision FOC:} Multiplying equation \eqref{eq:focb} by $\gamma^{\sigma_c t}$ leads to the following expression in stationary terms,
+\beq \label{eq:sfocb} \lambda_t = \beta \gamma^{\sigma_c} E_t \left(\frac{\ds R_t}{\ds \Pi_{t+1}}\right) \lambda_{t+1} \eeq
+Log-linearizing yields,
+\beq \label{eq:lnfocb} \hat{\lambda}_t = \hat{R_t} - \hat{\Pi}_{t+1} + \hat{\lambda}_{t+1}. \eeq
+
+\section{Labor Services Sector}
+\subsection{Labor-packing Firms' Optimal Behavior}
+We can model nominal wage rigidity with a monopolistically competitive labor services sector with a Calvo pricing friction.  Households supply identical labor services at a wage $W_t^h$ to a continuum of labor unions.  Each labor union creates a differentiated labor service, $L_t(l)$ which it sells to labor-packing firms at a wage, $W_t(l)$.  Labor packing firms demand all types of these differentiated labor services to form the composite labor input, $L_t$, according to the function,
+\beq \label{eq:labpack} L_t = \left[ \int_0^1 L_t(l)^{\frac{\theta_t^w-1}{\theta_t^w}} dl \right]^{\frac{\theta_t^w}{\theta_t^w-1}} \eeq
+where $\theta_t^w$ is the time-varying elasticity of subsitution between the differentiated labor inputs. 
+
+Labor-packers sell $L_t$ to intermediate goods producing firms at wage, $W_t$.  They choose their demand for each $L_t(l)$ to maximize profits,
+\beq \max_{L_t(l)} W_t \left[ \int_0^1 L_t(l)^{\frac{\theta_t^w-1}{\theta_t^w}} dl \right]^{\frac{\theta_t^w}{\theta_t^w-1}}  - \int_0^\infty W_t(l) L_t(l) dl. \eeq
+The first order condition leads to the following labor demand:
+\beq L_t(l) = \left[ \frac{W_t(l)}{W_t} \right]^{-\theta_t^w} L_t. \eeq
+Substituting this into \eqref{eq:labpack} leads to the following expression for the aggregate wage:
+\beq \label{eq:agwage} W_t = \left[ \int_0^1 W_t(l)^{1-\theta_t^w} dl \right]^{\frac{1}{1-\theta_t^w}} \eeq
+
+\subsection{Labor Unions' Optimal Behavior}
+Labor-unions have monopolistically competitive power over their differentiated labor services and they are subject to a Calvo pricing friction.  Let $1-\xi_w \in (0,1)$ denote the random probability that any labor union will be able to re-optimize their wage in a given period.  Let labor unions that do not re-optimize their wage be able to adjust their wage by the gross rate $\gamma \pi_{t-1}^{\iota_w} {\pi^*}^{1-\iota_w}$, where $\iota_w \in (0,1)$ is the degree of indexation to past inflation.
+
+When a labor union does re-optimize a wage, with probability $\xi_w^s$ it will not be able to re-optimize the wage for another $s$ periods.  In such a case, if the labor union chooses wage $\tilde{w}_t(l)$ today, the wage in $s$ periods will equal,
+\beq \tilde{W}_{t+s}(l) = \tilde{W}_t(l) \prod_{j=1}^s \gamma \pi_{t+j-1}^{\iota_w} {\pi^*}^{1-\iota_w} = \tilde{W}_t(l) \gamma^s \Delta_{t,s} \eeq
+A labor union's decision for $\tilde{W}_t(l)$ to maximize expected value of profits is given by,
+\beq \label{eq:labprofit} \begin{array}{c} \ds \max_{\tilde{W}_t(l)} E_t \sum_{s=0}^{\infty} \xi_w^s \beta^s \Lambda_{t+s} \left( \tilde{W}_{t+s}(l) - W_{t+s}^h \right) L_{t+s}(l) \\ [1.5pc]
+= \ds \max_{\tilde{W}_t(l)} E_t \sum_{s=0}^{\infty} \xi_w^s \beta^s \Lambda_{t+s} \left(\tilde{W}_t(l) \gamma^s \Delta_{t,s} - W_{t+s}^h \right) \left[ \frac{\tilde{W}_t(l) \gamma^s \Delta_{t,s}}{W_{t+s}} \right]^{-\theta_{t+s}^w} L_{t+s}  \end{array} \eeq
+The rightmost side of the equation \eqref{eq:labprofit} reveals that all labor unions that are re-optimizing their wage are identical and will therefore choose the same wage.  In what follows, we economize on notation given $\tilde{W}_t(l) = \tilde{W}_t$.  The first order condition is given by,
+\beq \begin{array}{c} \ds E_t \sum_{s=0}^{\infty} \xi_w^s \beta^s \Lambda_{t+s} \left\{ (1-\theta_{t+s}^w) \tilde{W}_t^{-\theta_{t+s}^w} \gamma^{s(1-\theta_{t+s}^w)} \Delta_{t,s}^{1-\theta_{t+s}^w} \Pi_{t,s}^{\theta_{t+s}^w} W_{t+s}^{\theta_{t+s}^w}  \right. \\ [1.5pc]
++ \left. \theta_{t+s}^w \tilde{W}^{-\theta_{t+s}^w - 1} \gamma^{-s \theta_{t+s}^w} \Delta_{t,s}^{-\theta_{t+s}^w} \Pi_{t,s}^{1+\theta_{t+s}^w} W_{t+s}^h W_{t+s}^{\theta_{t+s}^w} \right\} L_{t+s} = 0. \end{array} \eeq
+Recall that $\lambda_t = \Lambda_t \gamma^{\sigma_c t}$ denotes detrended marginal utility of income and $w_t \equiv W_t / (P_t \gamma^t)$ and $w_t^h \equiv W_t^h / (P_t \gamma^t)$ denote detrended real wage paid by firms and received by households, respectively.  Using these and letting $\tilde{w}_t \equiv \tilde{W}_t / (P_t \gamma^t)$ denote the detrended optimal wage leads to the following condition:
+\beq E_t \sum_{s=0}^{\infty} \xi_w^s \beta^s \gamma^{s(1-\sigma_c)} \lambda_{t+s} w_{t+s}^{\theta_{t+s}^w} L_{t+s} \left[ (1 - \theta_{t+s}^w) \tilde{w}_t^{-\theta_{t+s}^w}  + \theta_{t+s}^w \tilde{w}_t^{-\theta_{t+s}^w-1} w_{t+s}^h \right] =0.\eeq
+At the non-stochastic balanced growth path, the detrended real wage charged by labor unions are identical.  Evaluating the expression above at the non-stochastic balanced growth path reveals the following long-run wage markup,
+\beq \frac{w}{w^h} = \frac{\theta^w}{\theta^w-1}, \eeq
+where $\theta^w$ is the long-run value for elasticity of substitution between labor inputs.  As $\theta^w \rightarrow \infty$, the labor market becomes perfectly competitive and the wage markup, $w/w^h$, approaches unity.  As $\theta^w \rightarrow+ 1$, the labor market becomes less competitive and the wage markup approaches infinity.
+
+\subsection{Aggregate Wage}
+Equation \eqref{eq:agwage} expresses the aggregate wage as a function of the wages for the contiuum of differentiated labor services.  We demonstrated in the previous subsection that all labor unions that are able to reoptimize their wage will charge wage $\tilde{W}_t$, which consists of fraction $1-\xi_w$ of all labor unions.  The average wage rate for all other firms (fraction $\xi_w$) is equal to $\gamma \pi_{t-1}^{\iota_w} {\pi^*}^{1-\iota_w} W_{t-1}$.  Given these expressions, equation \eqref{eq:agwage} can be rewritten as,
+\beq W_t^{1-\theta_t^w} = (1-\xi_w) \tilde{W}_t^{1-\theta_t^w} + \xi_w (\gamma \pi_{t-1}^{\iota_w} {\pi^*}^{1-\iota_w} W_{t-1})^{1-\theta_t^w} \eeq
+Rewriting these in terms of detrended wages yields,
+\beq w_t^{1-\theta_t^w} = (1-\xi_w) \tilde{w}_t^{1-\theta_t^w} + \xi_w \pi_{t-1}^{\iota_w(1-\theta_t^w)} \pi_t^{\theta_t^w-1}{\pi^*}^{(1-\iota_w)(1-\theta_t^w)} w_{t-1}^{1-\theta_t^w} \eeq
+
+
+\end{document}
